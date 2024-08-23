@@ -6,6 +6,17 @@ export const getErrorMessage = (error: unknown) => {
     return String(error)
 }
 
+export const listProjects = async () => {
+    try {
+        const response = await axiosConfig.get(``);
+        const { success, message } = response.data;
+
+        toast[success ? 'success' : 'error'](message);
+    } catch (err) {
+        toast.error(getErrorMessage(err));
+    }
+}
+
 export const getTasks = async (projectId) => {
     if (!projectId) {
         toast.error("Project is required!");
@@ -27,6 +38,7 @@ export const getTasks = async (projectId) => {
         return [];
     }
 }
+
 
 export const reorderTasks = async (projectId, start, end) => {
     try {

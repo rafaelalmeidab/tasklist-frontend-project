@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {getTasks} from "./utils";
+import { getTasks, listProjects } from "./utils";
 import "react-responsive-modal/styles.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,10 +12,12 @@ import React from 'react';
 
 function Main () {
     const [projectId, setProjectId] = useState('');
+    // console.log("projects()");
+    // console.log(listProjects());
+    // return true;
+    // // document.getElementById('app').setAttribute('data-projects', JSON.stringify(listProjects()));
     // const projectsData = document.getElementById('app').getAttribute('data-projects');
     const projectsData = document.getElementById('app');
-    console.log(document.getElementById('app')); 
-    // return true;
     const projects = JSON.parse(projectsData);
     const [tasks, setTasks] = useState([]);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
